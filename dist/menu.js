@@ -1,21 +1,24 @@
-// Getting hamburguer menu in small screens
-const menu = document.getElementById("menu");
-const ulMenu = document.getElementById("ulMenu");
+document.addEventListener("DOMContentLoaded", () => {
+  const menuElement = document.getElementById("menu");
+  const ulMenu = document.getElementById("ulMenu");
 
-function menuToggle() {
-  menu.classList.toggle("h-32");
-}
-
-// Browser resize listener
-window.addEventListener("resize", menuResize);
-
-// Resize menu if user changing the width with responsive menu opened
-function menuResize() {
-  // First get the size from the window
-  const window_size = window.innerWidth || document.body.clientWidth;
-  if (window_size > 640) {
-    menu.classList.remove("h-32");
+  if (!menuElement || !ulMenu) {
+    console.error("Menu or ulMenu element not found. Ensure the IDs are correct in the HTML.");
+    return;
   }
-}
 
-console.log("menu.js loaded successfully");
+  function menuToggle() {
+    menuElement.classList.toggle("h-32");
+  }
+
+  window.addEventListener("resize", menuResize);
+
+  function menuResize() {
+    const window_size = window.innerWidth || document.body.clientWidth;
+    if (window_size > 640) {
+      menuElement.classList.remove("h-32");
+    }
+  }
+
+  console.log("menu.js loaded successfully");
+});
