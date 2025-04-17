@@ -50,14 +50,27 @@ body {
 }
 
 /* Navbar styles */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 nav a {
+  font-family: 'Special Gothic Expanded One', sans-serif;
   font-size: 1.25rem;
   text-transform: uppercase;
-  transition: color 0.3s ease;
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease, max-width 0.5s ease;
 }
 
 nav a:hover {
   color: #555; /* Adjust hover color as needed */
+}
+
+nav .group-hover span {
+  max-width: 100%;
 }
 
 /* Heading styles */
