@@ -7,6 +7,7 @@
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
 /* 35mm border effect for icons */
+/* 35mm film border effect with perforations */
 .icon-wrapper {
   position: relative;
   display: block;
@@ -14,6 +15,7 @@
   border: 10px solid #000; /* Black border for the filmstrip */
   border-radius: 8px; /* Slightly rounded corners */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.8); /* Subtle shadow for depth */
+  background-color: #000; /* Black background for film effect */
 }
 
 .icon-wrapper::before,
@@ -22,23 +24,49 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 10px;
+  width: 15px; /* Width of the perforation strip */
   background: repeating-linear-gradient(
     to bottom,
     #000,
     #000 5px,
-    #1a1a1a 5px,
-    #1a1a1a 10px
+    transparent 5px,
+    transparent 15px
   );
 }
 
 .icon-wrapper::before {
-  left: -15px; /* Offset for the left perforation */
+  left: -20px; /* Offset for the left perforation */
 }
 
 .icon-wrapper::after {
-  right: -15px; /* Offset for the right perforation */
+  right: -20px; /* Offset for the right perforation */
 }
+
+/* Grainy texture overlay for film scan effect */
+.icon-wrapper img {
+  filter: contrast(1.1) brightness(0.9) saturate(0.8); /* Slightly desaturated and darkened */
+  transition: transform 0.3s ease, filter 0.3s ease; /* Smooth hover effect */
+}
+
+.icon-wrapper img:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+  filter: contrast(1.2) brightness(1); /* Brighten on hover */
+}
+
+/* Optional: Add a grainy texture overlay */
+.icon-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png'); /* Grainy texture */
+  opacity: 0.2; /* Subtle effect */
+  pointer-events: none;
+  z-index: 1;
+}
+
 *,
 ::before,
 ::after {
@@ -55,6 +83,24 @@
 ::before,
 ::after {
   --tw-content: '';
+}
+
+/* Centered and larger overlay text */
+.icon-wrapper .absolute.inset-0 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem; /* Make the text larger */
+  font-weight: bold; /* Make the text bold */
+  text-align: center;
+  color: #ffffff; /* White text */
+  background-color: rgba(0, 0, 0, 0.6); /* Dark overlay with transparency */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease; /* Smooth fade-in effect */
+}
+
+.icon-wrapper:hover .absolute.inset-0 {
+  opacity: 1; /* Show the overlay text on hover */
 }
 
 /*
