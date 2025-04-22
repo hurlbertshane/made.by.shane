@@ -86,22 +86,7 @@
 }
 
 /* Centered and larger overlay text */
-.icon-wrapper .absolute.inset-0 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem; /* Make the text larger */
-  font-weight: bold; /* Make the text bold */
-  text-align: center;
-  color: #ffffff; /* White text */
-  background-color: rgba(0, 0, 0, 0.6); /* Dark overlay with transparency */
-  opacity: 0; /* Initially hidden */
-  transition: opacity 0.3s ease; /* Smooth fade-in effect */
-}
 
-.icon-wrapper:hover .absolute.inset-0 {
-  opacity: 1; /* Show the overlay text on hover */
-}
 
 /*
 1. Use a consistent sensible line-height in all browsers.
