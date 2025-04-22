@@ -7,6 +7,7 @@
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
 /* Film border effect with a realistic filmstrip background */
+/* Film border effect with icons positioned in the empty area */
 .icon-wrapper {
   position: relative;
   display: block;
@@ -19,10 +20,10 @@
 
 .icon-wrapper img {
   position: absolute;
-  top: 10%; /* Adjust to fit inside the film frame */
-  left: 10%;
-  width: 80%; /* Ensure the image fits within the film border */
-  height: 80%;
+  top: 15%; /* Adjust to fit inside the empty area of the film frame */
+  left: 15%;
+  width: 70%; /* Ensure the image fits within the empty area */
+  height: 70%;
   object-fit: cover; /* Ensure the image scales properly */
   z-index: 1; /* Place the image above the film border */
 }
