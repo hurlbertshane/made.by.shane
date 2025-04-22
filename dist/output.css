@@ -32,11 +32,11 @@
   justify-content: center; /* Center horizontally */
   background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
   color: #fff; /* White text */
-  font-size: 2rem; /* Adjust text size */
+  font-size: 1.5rem; /* Adjust text size */
   font-family: "Special Gothic Expanded One", sans-serif; /* Use the same font as the header */
   font-weight: bold;
   text-align: center;
-  opacity: 0; /* Hidden by default */
+  z-index: 1; /* Ensure overlay is above the image */
   transition: opacity 0.3s ease; /* Smooth fade-in effect */
 }
 
