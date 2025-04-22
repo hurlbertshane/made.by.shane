@@ -7,25 +7,18 @@
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
 /* Film border effect with a realistic filmstrip background */
-/* Film border effect with icons positioned in the empty area */
+
+/* Centered overlay text */
 .icon-wrapper {
   position: relative;
   display: block;
-  width: 100%;
-  aspect-ratio: 3 / 2; /* Maintain a 3:2 aspect ratio for the film frame */
-  background: url('dist/assets/film_border.png') no-repeat center center; /* Film border image */
-  background-size: cover; /* Ensure the image covers the entire area */
   overflow: hidden;
 }
 
 .icon-wrapper img {
-  position: absolute;
-  top: 15%; /* Adjust to fit inside the empty area of the film frame */
-  left: 15%;
-  width: 70%; /* Ensure the image fits within the empty area */
-  height: 70%;
-  object-fit: cover; /* Ensure the image scales properly */
-  z-index: 1; /* Place the image above the film border */
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .icon-wrapper .overlay {
@@ -35,23 +28,21 @@
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
-  color: #fff;
-  font-size: 2rem;
-  font-family: 'Special Gothic Expanded One', sans-serif;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  color: #fff; /* White text */
+  font-size: 2rem; /* Adjust text size */
+  font-family: "Special Gothic Expanded One", sans-serif; /* Use the same font as the header */
   font-weight: bold;
   text-align: center;
   opacity: 0; /* Hidden by default */
-  z-index: 2; /* Place the overlay above the image */
   transition: opacity 0.3s ease; /* Smooth fade-in effect */
 }
 
 .icon-wrapper:hover .overlay {
-  opacity: 1; /* Show the overlay on hover */
+  opacity: 1; /* Show overlay on hover */
 }
-
 /* Centered and larger overlay text */
 
 
